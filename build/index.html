@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Streams Predictor</h1>
+
+    <form onsubmit="getResult(event)" method="post">
+
+        <div>
+            <label for="trackName">Enter track name:</label>
+            <input type="text" name="trackName" id="trackNameBox">
+        </div>
+
+        <div>
+            <label for="artistName">Enter artist(s) name:</label>
+            <input type="text" name="artistName" id="artistNameBox">
+        </div>
+
+        <div>
+            <label for="artistCount">Enter number of artists:</label>
+            <input type="number" step="1" min="1" name="artistCount" id="artistCountBox">
+        </div>
+
+        <div>
+            <label for="releasedDate">Enter released date</label>
+            <input type="date" name="releasedDate" id="releasedDateBox">
+        </div>
+
+        <div>
+            <label for="inSpotifyPlaylists">Enter number of Spotify playlists song is in:</label>
+            <input type="number" min="0" step="1" name="inSpotifyPlaylists" id="inSpotifyPlaylistsBox">
+        </div>
+
+        <div>
+            <label for="inSpotifyCharts">Check the box if the song is in Spotify charts:</label>
+            <input type="checkbox" name="inSpotifyCharts" id="inSpotifyChartsBox" value="0" onchange="changeCheckboxValue(this)">
+        </div>
+
+        <div>
+            <label for="inApplePlaylists">Enter number of Apple Music playlists song is in:</label>
+            <input type="text" name="inApplePlaylists" id="inApplePlaylistsBox" step="1" min="0">
+        </div>
+
+        <div>
+            <label for="inAppleCharts">Check the box if the song is in Apple Music charts:</label>
+            <input type="checkbox" name="inAppleCharts" id="inAppleChartsBox" value="0" onchange="changeCheckboxValue(this)">
+        </div>
+
+        <div>
+            <label for="playlistAdds">Enter number of playlist adds:</label>
+            <input type="number" name="playlistAdds" id="playlistAddsBox" step="1" min="0">
+        </div>
+
+        <div>
+            <label for="bpm">Enter song's BPM (beats per minute):</label>
+            <input type="range" min="80" max="140" name="bpm" id="bpmBox" onkeyup="showRangeValue()" onchange="showRangeValue()" onmousemove="showRangeValue()">
+            <span id="bpmValSpan"></span>
+        </div>
+
+        <div>
+            <label for="key">Enter song's key:</label>
+            <select type="text" name="key" id="keyBox">
+                <option selected disabled>Select...</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="mode">Enter song's mode:</label>
+            <select name="mode" id="modeBox">
+                <option selected disabled>Select...</option>
+                <option value="Major">Major</option>
+                <option value="Minor">Minor</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="danceability">Enter song's danceability percentage (0-1):</label>
+            <input type="number" name="danceability" id="danceabilityBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="valence">Enter song's valence percentage (0-1):</label>
+            <input type="number" name="valence" id="valenceBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="energy">Enter song's energy percentage (0-1):</label>
+            <input type="number" name="energy" id="energyBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="acousticness">Enter song's acousticness percentage (0-1):</label>
+            <input type="number" name="acousticness" id="acousticnessBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="instrumentalness">Enter song's instrumentalness percentage (0-1):</label>
+            <input type="number" name="instrumentalness" id="instrumentalnessBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="liveness">Enter song's liveness percentage (0-1):</label>
+            <input type="number" name="liveness" id="livenessBox" min="0" max="1" step="any">
+        </div>
+
+        <div>
+            <label for="speechiness">Enter song's speechiness percentage (0-1):</label>
+            <input type="number" name="speechiness" id="speechinessBox" min="0" max="1" step="any">
+        </div>
+
+        <div id="actionBtns">
+            <button type="submit">Calculate</button>
+            <button type="reset">Clear Form</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <p id="resultPara"></p>
+
+</body>
+
+</html>
